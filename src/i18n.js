@@ -15,7 +15,7 @@ i18n
     },
     backend: {
       // Point to the directory where your translation files will be
-      loadPath: '/locales/{{lng}}/translation.json',
+      loadPath: './locales/{{lng}}/translation.json', // <-- Correction ici
     },
   });
 
