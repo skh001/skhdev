@@ -8,7 +8,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [visibleProjects, setVisibleProjects] = useState(2);
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // New state for the pop-up
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -38,6 +38,7 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // New function to handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -361,7 +362,6 @@ function App() {
                     type="text"
                     name="name"
                     placeholder={t('contact_placeholder_name')}
-                    required // Added 'required'
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
                   />
                 </div>
@@ -370,7 +370,6 @@ function App() {
                     type="email"
                     name="email"
                     placeholder={t('contact_placeholder_email')}
-                    required // Added 'required'
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
                   />
                 </div>
@@ -379,7 +378,6 @@ function App() {
                     name="message"
                     placeholder={t('contact_placeholder_message')}
                     rows={5}
-                    required // Added 'required'
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
                   />
                 </div>

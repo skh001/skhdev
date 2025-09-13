@@ -14,8 +14,9 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/translation.json`, // <-- Nouvelle ligne
-    },
+  loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/translation.json`,
+},
+
   });
 
 export default i18n;
