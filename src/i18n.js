@@ -8,14 +8,13 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en', // default language
+    fallbackLng: 'en',
     debug: false,
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+      escapeValue: false,
     },
     backend: {
-      // Point to the directory where your translation files will be
-      loadPath: './locales/{{lng}}/translation.json', // <-- Correction ici
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/translation.json`, // <-- Nouvelle ligne
     },
   });
 
