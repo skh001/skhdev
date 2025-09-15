@@ -192,9 +192,9 @@ function App() {
           <div className="mb-8 animate-fade-in-up">
             <h1 
               className="text-6xl md:text-8xl font-black font-orbitron mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-green-400 bg-clip-text text-transparent glitch-effect"
-              data-text="Front-End Developer"
+              data-text="I'm SKH"
             >
-              Front-End Developer
+              I'm SKH
             </h1>
             <div className="h-1 w-32 mx-auto bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
           </div>
@@ -236,8 +236,7 @@ function App() {
               About Me
             </h2>
             <p className="text-xl font-rajdhani text-gray-400 max-w-2xl mx-auto">
-              A passionate front-end developer with an eye for design and expertise in React. I love creating intuitive and responsive user interfaces that combine aesthetics and functionality.
-            </p>
+Creative front-end developer driven by design and usability. I craft intuitive, responsive interfaces that seamlessly blend aesthetics with functionality            </p>
           </div>
         </div>
       </section>
@@ -480,7 +479,7 @@ function App() {
       <footer className="relative py-8 px-6 border-t border-gray-800">
         <div className="container mx-auto text-center">
           <p className="font-rajdhani text-gray-400">
-            © 2024 Skh. All Rights Reserved.
+            © 2025 Skh. All Rights Reserved.
           </p>
         </div>
       </footer>
