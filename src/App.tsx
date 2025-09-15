@@ -200,7 +200,7 @@ function App() {
           </div>
           
           <h2 className="text-2xl md:text-4xl font-bold font-rajdhani mb-6 text-gray-200 animate-fade-in-up animation-delay-300">
-            Crafting Unique Web Experiences
+            Coding creativity into reality 💻🎨
           </h2>
           
           <p className="text-xl md:text-2xl font-rajdhani font-light text-gray-400 mb-8 animate-fade-in-up animation-delay-600">
