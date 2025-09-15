@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Github, Mail, Linkedin, ExternalLink, Menu, X, ChevronDown, ChevronUp, Instagram, Send } from 'lucide-react';
 import './App.css';
 
 function App() {
-  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [visibleProjects, setVisibleProjects] = useState(2);
   const [showPopup, setShowPopup] = useState(false); // New state for the pop-up
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
@@ -39,7 +37,7 @@ function App() {
   }, []);
 
   // New function to handle form submission
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
 
@@ -96,9 +94,10 @@ function App() {
     setVisibleProjects(2);
   };
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  // La fonction de changement de langue est retirée car le site ne sera plus bilingue
+  // const changeLanguage = (lng: string) => {
+  //   i18n.changeLanguage(lng);
+  // };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
@@ -132,10 +131,10 @@ function App() {
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {[
-                { id: 'home', label: t('nav_home') },
-                { id: 'about', label: t('nav_about') },
-                { id: 'work', label: t('nav_work') },
-                { id: 'contact', label: t('nav_contact') }
+                { id: 'home', label: "Home" },
+                { id: 'about', label: "About" },
+                { id: 'work', label: "Projects" },
+                { id: 'contact', label: "Contact" }
               ].map(item => (
                 <button
                   key={item.id}
@@ -149,21 +148,11 @@ function App() {
               ))}
             </div>
 
-            {/* Language Switcher */}
+            {/* Language Switcher - Removed */}
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => changeLanguage('en')}
-                className={`font-rajdhani font-medium text-sm transition-all duration-300 ${i18n.language === 'en' ? 'text-cyan-400' : 'text-gray-400 hover:text-cyan-400'}`}
-              >
-                EN
-              </button>
+              <span className="font-rajdhani font-medium text-sm text-cyan-400">EN</span>
               <span className="text-gray-500">|</span>
-              <button
-                onClick={() => changeLanguage('fr')}
-                className={`font-rajdhani font-medium text-sm transition-all duration-300 ${i18n.language === 'fr' ? 'text-cyan-400' : 'text-gray-400 hover:text-cyan-400'}`}
-              >
-                FR
-              </button>
+              <span className="font-rajdhani font-medium text-sm text-gray-400">FR</span>
             </div>
 
             {/* Mobile Menu Button */}
@@ -179,10 +168,10 @@ function App() {
           {isMenuOpen && (
             <div className="md:hidden mt-4 py-4 border-t border-cyan-400/20">
               {[
-                { id: 'home', label: t('nav_home') },
-                { id: 'about', label: t('nav_about') },
-                { id: 'work', label: t('nav_work') },
-                { id: 'contact', label: t('nav_contact') }
+                { id: 'home', label: "Home" },
+                { id: 'about', label: "About" },
+                { id: 'work', label: "Projects" },
+                { id: 'contact', label: "Contact" }
               ].map(item => (
                 <button
                   key={item.id}
@@ -203,19 +192,19 @@ function App() {
           <div className="mb-8 animate-fade-in-up">
             <h1 
               className="text-6xl md:text-8xl font-black font-orbitron mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-green-400 bg-clip-text text-transparent glitch-effect"
-              data-text={t('hero_title')}
+              data-text="Front-End Developer"
             >
-              {t('hero_title')}
+              Front-End Developer
             </h1>
             <div className="h-1 w-32 mx-auto bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
           </div>
           
           <h2 className="text-2xl md:text-4xl font-bold font-rajdhani mb-6 text-gray-200 animate-fade-in-up animation-delay-300">
-            {t('hero_subtitle')}
+            Crafting Unique Web Experiences
           </h2>
           
           <p className="text-xl md:text-2xl font-rajdhani font-light text-gray-400 mb-8 animate-fade-in-up animation-delay-600">
-            {t('hero_hook')}
+            I design and develop modern, high-performance websites, from concept to launch.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-900">
@@ -223,13 +212,13 @@ function App() {
               onClick={() => scrollToSection('work')}
               className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full font-rajdhani font-semibold text-lg hover:shadow-neon-cyan transition-all duration-300 hover:scale-105"
             >
-              {t('hero_button_work')}
+              See My Work
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="px-8 py-3 border-2 border-cyan-400 rounded-full font-rajdhani font-semibold text-lg text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan"
             >
-              {t('hero_button_contact')}
+              Contact Me
             </button>
           </div>
         </div>
@@ -244,10 +233,10 @@ function App() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-orbitron mb-4 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
-              {t('about_title')}
+              About Me
             </h2>
             <p className="text-xl font-rajdhani text-gray-400 max-w-2xl mx-auto">
-              {t('about_text')}
+              A passionate front-end developer with an eye for design and expertise in React. I love creating intuitive and responsive user interfaces that combine aesthetics and functionality.
             </p>
           </div>
         </div>
@@ -258,10 +247,10 @@ function App() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-orbitron mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              {t('work_title')}
+              My Projects
             </h2>
             <p className="text-xl font-rajdhani text-gray-400 max-w-2xl mx-auto">
-              {t('work_subtitle')}
+              A selection of my recent web design and development work.
             </p>
           </div>
           
@@ -295,7 +284,7 @@ function App() {
                       className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg font-rajdhani font-semibold text-sm hover:shadow-neon-green transition-all duration-300 hover:scale-105"
                     >
                       <ExternalLink size={16} />
-                      {t('work_button_demo')}
+                      Demo
                     </a>
                     <a
                       href={project.github}
@@ -304,7 +293,7 @@ function App() {
                       className="flex items-center gap-2 px-4 py-2 border border-purple-400 text-purple-400 rounded-lg font-rajdhani font-semibold text-sm hover:bg-purple-400 hover:text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-neon-purple"
                     >
                       <Github size={16} />
-                      {t('work_button_github')}
+                      GitHub
                     </a>
                   </div>
                 </div>
@@ -319,14 +308,14 @@ function App() {
                   onClick={handleShowMore}
                   className="px-8 py-3 border-2 border-cyan-400 rounded-full font-rajdhani font-semibold text-lg text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan flex items-center gap-2 mx-auto"
                 >
-                  {t('work_show_more')} <ChevronDown size={20} />
+                  Show More <ChevronDown size={20} />
                 </button>
               ) : (
                 <button
                   onClick={handleShowLess}
                   className="px-8 py-3 border-2 border-cyan-400 rounded-full font-rajdhani font-semibold text-lg text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan flex items-center gap-2 mx-auto"
                 >
-                  {t('work_show_less')} <ChevronUp size={20} />
+                  Show Less <ChevronUp size={20} />
                 </button>
               )}
             </div>
@@ -339,10 +328,10 @@ function App() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-orbitron mb-4 bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
-              {t('contact_title')}
+              Contact
             </h2>
             <p className="text-xl font-rajdhani text-gray-400 max-w-2xl mx-auto">
-              {t('contact_subtitle')}
+              Feel free to reach out if you have a project in mind or just want to chat!
             </p>
           </div>
           
@@ -350,7 +339,7 @@ function App() {
             {/* Contact Form */}
             <div className="bg-gray-800/30 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-8">
               <h3 className="text-2xl font-bold font-rajdhani text-cyan-400 mb-6">
-                {t('contact_form_title')}
+                Send Me a Message
               </h3>
               
               <form 
@@ -361,7 +350,7 @@ function App() {
                   <input
                     type="text"
                     name="name"
-                    placeholder={t('contact_placeholder_name')}
+                    placeholder="Your Name"
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
                   />
                 </div>
@@ -369,14 +358,14 @@ function App() {
                   <input
                     type="email"
                     name="email"
-                    placeholder={t('contact_placeholder_email')}
+                    placeholder="Your Email"
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
                   />
                 </div>
                 <div>
                   <textarea
                     name="message"
-                    placeholder={t('contact_placeholder_message')}
+                    placeholder="Your Message"
                     rows={5}
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
                   />
@@ -387,7 +376,7 @@ function App() {
                   className="w-full py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg font-rajdhani font-bold text-lg hover:shadow-neon-cyan transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
-                  {t('contact_button_send')}
+                  Send Message
                 </button>
               </form>
             </div>
@@ -396,7 +385,7 @@ function App() {
             <div className="space-y-8">
               <div className="bg-gray-800/30 backdrop-blur-sm border border-green-400/20 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold font-rajdhani text-green-400 mb-6">
-                  {t('social_title')}
+                  Find Me Here
                 </h3>
                 
                 <div className="space-y-4">
@@ -409,7 +398,7 @@ function App() {
                     </div>
                     <div>
                       <div className="font-rajdhani font-semibold text-cyan-400">
-                        {t('social_email')}
+                        Email
                       </div>
                       <div className="font-rajdhani text-gray-400">sofianegrafic@gmail.com</div>
                     </div>
@@ -426,7 +415,7 @@ function App() {
                     </div>
                     <div>
                       <div className="font-rajdhani font-semibold text-purple-400">
-                        {t('social_github')}
+                        GitHub
                       </div>
                       <div className="font-rajdhani text-gray-400">@skh001</div>
                     </div>
@@ -443,7 +432,7 @@ function App() {
                     </div>
                     <div>
                       <div className="font-rajdhani font-semibold text-green-400">
-                        {t('social_linkedin')}
+                        LinkedIn
                       </div>
                       <div className="font-rajdhani text-gray-400">linkedin.com/in/skh</div>
                     </div>
@@ -460,7 +449,7 @@ function App() {
                     </div>
                     <div>
                       <div className="font-rajdhani font-semibold text-green-400">
-                        {t('social_instagram')}
+                        Instagram
                       </div>
                       <div className="font-rajdhani text-gray-400">@imskhdev</div>
                     </div>
@@ -475,10 +464,10 @@ function App() {
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
               <div className="bg-gray-800 rounded-2xl shadow-lg p-8 text-center animate-bounce">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-2">
-                  {t('Thank you for reaching out!')}
+                  Thank you for reaching out!
                 </h3>
                 <p className="text-gray-400">
-                  {t('I will get back to you as soon as possible.')}
+                  I will get back to you as soon as possible.
                 </p>
               </div>
             </div>
@@ -491,7 +480,7 @@ function App() {
       <footer className="relative py-8 px-6 border-t border-gray-800">
         <div className="container mx-auto text-center">
           <p className="font-rajdhani text-gray-400">
-            {t('footer_text')}
+            © 2024 Skh. All Rights Reserved.
           </p>
         </div>
       </footer>
