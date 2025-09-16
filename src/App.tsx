@@ -147,14 +147,6 @@ function App() {
                 </button>
               ))}
             </div>
-
-            {/* Language Switcher - Removed */}
-            <div className="flex items-center gap-2">
-              <span className="font-rajdhani font-medium text-sm text-cyan-400">EN</span>
-              <span className="text-gray-500">|</span>
-              <span className="font-rajdhani font-medium text-sm text-gray-400">FR</span>
-            </div>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -351,6 +343,7 @@ Creative front-end developer driven by design and usability. I craft intuitive, 
                     name="name"
                     placeholder="Your Name"
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                    required
                   />
                 </div>
                 <div>
@@ -359,6 +352,7 @@ Creative front-end developer driven by design and usability. I craft intuitive, 
                     name="email"
                     placeholder="Your Email"
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                    required
                   />
                 </div>
                 <div>
@@ -367,6 +361,7 @@ Creative front-end developer driven by design and usability. I craft intuitive, 
                     placeholder="Your Message"
                     rows={5}
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg font-rajdhani text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
+                    required
                   />
                 </div>
                 <input type="hidden" name="_captcha" value="false" />
